@@ -1,0 +1,212 @@
+:root{
+    --main-color: #fa8838;
+    --main-bg-color: #fef2e9;
+    --bg-color: #fdd7bd;
+    --logo-color: #FFF6E9;
+    --a-color: #ffffff;
+    --logo-shadow: 4px 3px 5px black;
+    --text-shadow: 1px 1px 4px black;
+    --text-color: #F5F7F8;
+    --scroll-color: #eabea1;
+    --body-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+/**
+ * scrollbar style
+ */
+ body::-webkit-scrollbar { width: 15px; }
+ body::-webkit-scrollbar-track {
+    background: transparent;
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+    background: transparent;
+ }
+ 
+ body::-webkit-scrollbar-thumb:hover { background: var(--scroll-color); }
+ 
+ 
+ 
+ 
+ 
+ /*-----------------------------------*\
+   #REUSED STYLE
+ \*-----------------------------------*/
+ 
+ .has-scrollbar { padding-bottom: 5px; }
+ 
+ .has-scrollbar::-webkit-scrollbar {
+   width: 10px; /* for vertical scroll */
+   height: 10px; /* for horizontal scroll */
+ }
+ 
+ .has-scrollbar::-webkit-scrollbar-thumb {
+   background: transparent;
+   -webkit-border-radius: 20px;
+           border-radius: 20px;
+ }
+ 
+ .has-scrollbar:hover::-webkit-scrollbar-thumb { 
+    background: var(--scroll-color);
+    opacity: 0.3;
+ }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+}
+html{
+    margin: 0px 70px;
+    background-color: var(--main-bg-color);
+}
+body{
+    box-shadow: var(--body-shadow);
+}
+header{
+    background-color: var(--main-color);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px;
+    align-items: center;
+    gap: 30px;
+    height: 90px;
+
+    .logo{
+        color: var(--logo-color);
+        font-size: 50px;
+        font-weight: 500;
+        padding: 15px;
+        text-shadow: var(--logo-shadow);
+
+        p span{
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+    }
+
+
+    .nav ul li{
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 21px;
+        margin: 0px 5px;
+        font-weight: 500;
+        
+        a{
+            color: var(--a-color);
+            text-decoration: none;
+        }
+
+    }
+    .icons ul li{
+        display: inline-block;
+        padding: 5px 3px;
+        font-size: 21px;
+        margin: 0px 5px;
+        font-weight: 500;
+        position: relative;
+        
+        input{
+            height: 40px;
+            width: 200px;
+            border-radius: 100px;
+            text-align: center;
+            font-size: 18px;
+            border: 1.5px solid black;
+            color: var(--main-color);
+        }
+        a{
+            color: var(--a-color);
+            text-decoration: none;
+        }
+
+        span{
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            font-size: 18px;
+            bottom: 60%;
+            left: 60%;
+            background-color: rgb(189, 55, 55);
+            color: var(--a-color);
+            border-radius: 50%;
+        }
+    }
+}
+
+.container{
+    height: calc(100vh - 90px);
+    background-color: var(--bg-color);
+}
+
+.main-banner{
+    width: 100%;
+    height: 100%;
+    /* background-color: var(--bg-color); */
+    background-image: url(../Images/family/family4png.png);
+    background-repeat: no-repeat;
+    background-size: 65% auto;
+    background-position: bottom right;
+    padding: 150px 0px 0px 80px;
+    display: relative;
+
+    h1{
+        font-size: 45px;
+
+        span{
+            font-size: 65px;
+        }
+    }
+    
+    p{
+        font-size: 30px;
+        margin-top: 10px;
+        color: var(--text-color);
+        text-shadow: var(--text-shadow);
+    }
+    button{
+        padding: 10px 20px;
+        margin: 40px 0px 0px 0px;
+        background-color: var(--main-color);
+        color: var(--a-color);
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 22px;
+    }
+}
+
+.collections{
+    height: 200px;
+    padding: 50px 20px 0px 20px;
+    display: grid;
+    place-items: center;
+    overflow-x: scroll;
+
+    .boxes{
+        display: grid;
+        grid-template-rows:100px;
+        grid-template-columns: repeat(6,400px);
+        gap: 10px;
+    }
+    .box{
+        border-radius: 10px;
+        background-color: var(--main-bg-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+
+        .icon{
+            width: 30%;
+            display: grid;
+            place-items: center;
+            font-size: 65px;
+        }
+    }
+}
+
