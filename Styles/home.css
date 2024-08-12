@@ -5,9 +5,10 @@
     --logo-color: #FFF6E9;
     --a-color: #ffffff;
     --logo-shadow: 4px 3px 5px black;
-    --text-shadow: 1px 1px 4px black;
+    --text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.628);
     --text-color: #F5F7F8;
     --scroll-color: #eabea1;
+    --sidebar-color: hsla(24, 63%, 77%, 0.686);
     --body-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 }
@@ -59,12 +60,14 @@
     font-family: 'Roboto',sans-serif;
 }
 html{
-    margin: 0px 70px;
+    padding: 0px 70px;
     background-color: var(--main-bg-color);
 }
 body{
     box-shadow: var(--body-shadow);
 }
+
+/* ? Header */
 header{
     background-color: var(--main-color);
     display:flex;
@@ -107,6 +110,7 @@ header{
         padding: 5px 3px;
         font-size: 21px;
         margin: 0px 5px;
+        /* margin: 15px 5px 0px 5px; */
         font-weight: 500;
         position: relative;
         
@@ -137,8 +141,109 @@ header{
             border-radius: 50%;
         }
     }
+    .icon-web .icons ul li:not(:first-child){
+        margin: 5px 5px 0px 5px;
+    }
+    .icon-web .icons ul li:last-child{
+        display: none;
+    }
+    .icon-mob{
+        display: none;
+    }
+
+    .mob-head ul li{
+        display: inline-block;
+        padding: 5px 3px;
+        font-size: 21px;
+        margin: 0px 5px;
+        font-weight: 500;
+        position: relative;
+        
+        input{
+            height: 40px;
+            width: 200px;
+            border-radius: 100px;
+            text-align: center;
+            font-size: 18px;
+            border: 1.5px solid black;
+            color: var(--main-color);
+        }
+        a{
+            color: var(--a-color);
+            text-decoration: none;
+        }
+
+        span{
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            font-size: 18px;
+            bottom: 60%;
+            left: 60%;
+            background-color: rgb(189, 55, 55);
+            color: var(--a-color);
+            border-radius: 50%;
+        }
+    }
+    .sidebar{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 999;
+        background-color: var(--sidebar-color);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--body-shadow);
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        p{
+            font-size: 35px;
+            color: var(--main-color);
+            text-shadow: var(--text-shadow);
+            margin: 10px 5px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            height: 70px;
+           a{
+            margin-left: 120px;
+            font-size: 30px;
+           }
+        }
+    }
+    .sidebar ul{
+        width: 100%;
+        li{
+            list-style-type: none;
+            padding: 5px 10px;
+            font-size: 21px;
+            margin: 10px 5px;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.2s linear;
+        }
+    }
+    .sidebar a{
+        width: 100%;
+        color: var(--a-color);
+        text-shadow: var(--text-shadow);
+        text-decoration: none;
+    }
+    .sidebar li:hover{
+        background-color: var(--scroll-color);
+        box-shadow: var(--body-shadow);
+    }
 }
 
+
+/* ? Main Container */
 .container{
     height: calc(100vh - 90px);
     background-color: var(--bg-color);
@@ -210,3 +315,137 @@ header{
     }
 }
 
+
+/* ? Footer */
+footer{
+    display: none;
+    background-color: var(--main-color);
+    padding: 0px 10px;
+    gap: 30px;
+    height: 70px;
+
+    .icons{
+        width: 100%;
+        height: 100%;
+        ul{
+            width: 100%;
+            height: 100%;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .grip{
+                font-size: 23px;
+            }
+
+            li{
+                display: inline-block;
+                padding: 5px 3px;
+                font-size: 21px;
+                margin: 0px 5px;
+                font-weight: 500;
+                position: relative;
+                
+                a{
+                    color: var(--a-color);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+@media(width<1400px){
+    header .nav{
+        display: none;
+    }
+    header .icon-web .icons ul{
+        display: flex;
+        width: 100%;
+        li:last-child{
+            display: block;
+        }
+    }
+}
+
+@media(width<1200px){
+    
+    .collections{
+        .boxes{
+            display: grid;
+            grid-template-rows:100px;
+            grid-template-columns: repeat(6,350px);
+        }
+        .box{
+            .icon{
+                width: 30%;
+                font-size: 55px;
+            }
+        }
+    }
+}
+@media (width<800px) {
+    header .icon-web{
+        display: none;
+    }
+    header .icon-mob{
+        display: block;
+    }
+
+    .main-banner{
+        background-size: 85% 45%;
+        padding: 90px 0px 0px 80px;
+    
+        h1{
+            font-size: 35px;
+    
+            span{
+                font-size: 55px;
+            }
+        }
+        
+        p{
+            font-size: 25px;
+        }
+        button{
+            padding: 8px 18px;
+            margin: 30px 0px 0px 0px;
+            font-size: 20px;
+        }
+    }
+}
+
+@media(width<550px){
+    html{
+        padding: 0px 20px;
+    }
+
+    header{
+        gap: 10px;
+        height: 90px;
+    
+        .logo{
+            font-size: 35px;
+    
+            p span{
+                font-size: 22px;
+            }
+        }
+    }
+
+    .main-banner{
+        background-size: 95% 45%;
+        padding: 50px 0px 0px 50px;
+    }
+
+    .collections{
+        .boxes{
+            grid-template-columns: repeat(6,400px);
+        }
+    }
+
+    footer{
+        display: flex;
+    }
+}
